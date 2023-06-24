@@ -1,4 +1,11 @@
-# Nucleus-Inventory-System
+![Screenshot (893)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/d12af43d-9120-43b2-a265-210a9715bb5e)
+![Uploading Screenshot (892).png…]()
+![Uploading Screenshot (891).png…]()
+![Uploading Screenshot (889).png…]()
+![Uploading Screenshot (888).png…]()
+![Uploading Screenshot (887).png…]()
+![Uploading Screenshot (886).png…]()
+![Uploading Screenshot (885).png…]()
 # Nucleus-Inventory-System
 
 ## Project Description
@@ -88,4 +95,9 @@ in development profile we have used h2 database and in production profile we hav
 - User views all products.
 - User clicks on view all products in all stores.
 - User views all products in all stores.
+
+## Snap Shot of backend apis calls:
+![Uploading Screenshot (884).png…]()
+![Uploading Screenshot (883).png…]()
+
 
