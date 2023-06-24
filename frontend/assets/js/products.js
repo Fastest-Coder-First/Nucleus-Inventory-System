@@ -8,24 +8,10 @@ $(document).ready(function () {
     getProducts();
 
     function dataConverter(formData,index){
-        const {productId,productName,category,productPrice,productQuantity} = formData
-        return [index,productName,category,productPrice,productQuantity,`<button id="edit" data-id=${productId} title="Edit" class="btn btn-outline-primary rounded px-3 btn-sm"><i class="fas fa-pen"></i></button> <button id="delete"  data-id=${productId} title="Delete" class="btn btn-outline-danger rounded px-3 btn-sm"><i class="fas fa-trash"></i></button>`]
+        const {productId,productName,category,productPrice,rating,productQuantity,description} = formData
+        return [index,productName,category,productPrice,rating,productQuantity,description,`<button id="edit" data-id=${productId} title="Edit" class="btn btn-outline-primary rounded px-3 btn-sm"><i class="fas fa-pen"></i></button> <button id="delete"  data-id=${productId} title="Delete" class="btn btn-outline-danger rounded px-3 btn-sm"><i class="fas fa-trash"></i></button>`]
     }
 
-    function sendData(formData){
-        let data = Object.fromEntries(formData);
-        console.log(data);
-        const {name, category, price, quantity, store_id} = data;
-        return {
-            productName : name,
-            productQuantity : parseInt(quantity),
-            productPrice : parseInt(price),
-            description  : "test description",
-            category: category,
-            storeId :  parseInt(store_id)  ,
-            rating : 5
-        }
-    }
 
     // function hit api and to get all products and add them to the jquery datatable
     async function getProducts() {
@@ -41,19 +27,6 @@ $(document).ready(function () {
                     let reqData = dataConverter(product,index+1)
                     const oTable = $('#productTable').dataTable();
                     oTable.fnAddData(reqData);
-                    console.log("helo sdgdfh")
-                    // console.log("idnex", index)
-                    // let temp = {
-                    //     "S.No." : index,
-                    //     "Name": product.productName,
-                    //     "Category": product.category,
-                    //     "Price": product.productPrice,
-                    //     "Quantity": product.productQuantity,
-                    //     "Action": `<button id="edit" title="Edit" class="btn btn-outline-primary rounded px-3 btn-sm"><i class="fas fa-pen"></i></button> <button id="delete" title="Delete" class="btn btn-outline-danger rounded px-3 btn-sm"><i class="fas fa-trash"></i></button>`
-                    // }
-                    
-                    // $('#productTable').DataTable().rows.add(temp).draw();
-                    // myData.push(temp)
                 });
                 // $('#productTable').DataTable().clear().draw();
                 // $('#productTable').DataTable().rows.add(myData).draw();
@@ -79,7 +52,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 data.forEach(store => {
-                    $('#store_id').append(`<option value="${store.id}">${store.storeName}</option>`);
+                    $('#store_id').append(`<option value=${store.id}>${store.storeName}</option>`);
                 });
             },
             error: function (error) {
@@ -97,29 +70,14 @@ $(document).ready(function () {
         // replace text of button with spinner
         $('#saveProduct').html('<span class="spinner-border spinner-border-sm" style="margin: 0px 34.87px;" role="status" aria-hidden="true"></span>');
 
-        // get data from form
-        // var name = $('#addModal').find('#name').val();
-        // var category = $('#addModal').find('#category').val();
-        // var price = $('#addModal').find('#price').val();
-        // var quantity = $('#addModal').find('#quantity').val();
-
         //  get formdata
         var formData = new FormData(document.getElementById('addForm'));
-        // display the values
-        for (var value of formData.values()) {
-            console.log(value);
-        }
-
-        // console.log(formData)
-        const data = sendData(formData);
-        console.log(JSON.stringify(data));
-        //ajax with json data
 
         // add product
         $.ajax({
             url: server + '/products',
             type: 'POST',
-            data: JSON.stringify(data),
+            data: JSON.stringify(Object.fromEntries(formData)),
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
@@ -156,40 +114,42 @@ $(document).ready(function () {
     // add on click event listner on element with id as "edit"
     $(document).on('click', '#edit', function () {
         var id = $(this).attr('data-id');
-        // open modal
-        $('#editModal').modal('show');
         // copy details of product from table row to modal
-        $('#editModal').find('#pid').val(id);
+        // $('#editModal').find('#').val(id);
         $('#editModal').find('#name').val($(this).closest('tr').find('td:eq(1)').text());
         $('#editModal').find('#category').val($(this).closest('tr').find('td:eq(2)').text());
         $('#editModal').find('#price').val($(this).closest('tr').find('td:eq(3)').text());
+        $('#editModal').find('#rating').val($(this).closest('tr').find('td:eq(5)').text());
         $('#editModal').find('#quantity').val($(this).closest('tr').find('td:eq(4)').text());
+        $('#editModal').find('#description').val($(this).closest('tr').find('td:eq(4)').text());
+
+        // open modal
+        $('#editModal').modal('show');
     });
 
     // add on click event listner on element with id as "update"
-    $(document).on('submit', '#edit', function (e) {
+    $(document).on('submit', '#editForm', function (e) {
         // prevent default  
         e.preventDefault();
         // replace text of button with spinner
         $('#update').html('<span class="spinner-border spinner-border-sm" style="margin: 0px 38.15px;" role="status" aria-hidden="true"></span>');
 
         // get data from form
-        var id = $('#editModal').find('#pid').val();
-        var name = $('#editModal').find('#name').val();
-        var category = $('#editModal').find('#category').val();
-        var price = $('#editModal').find('#price').val();
-        var quantity = $('#editModal').find('#quantity').val();
+
+        // var id = $('#editModal').find('#pid').val();
+        // var name = $('#editModal').find('#name').val();
+        // var category = $('#editModal').find('#category').val();
+        // var price = $('#editModal').find('#price').val();
+        // var quantity = $('#editModal').find('#quantity').val();
+
+        var formData = new FormData(document.getElementById('addForm'));
 
         // update product
         $.ajax({
-            url: server + '/products/',
+            url: server + '/products',
             type: 'PUT',
-            data: {
-                name: name,
-                category: category,
-                price: price,
-                quantity: quantity
-            },
+            data: JSON.stringify(Object.fromEntries(formData)),
+            contentType: 'application/json',
             success: function (data) {
                 // get all products
                 getProducts();
@@ -247,4 +207,19 @@ $(document).ready(function () {
             }
         });
     });
+});
+
+// hit api to get stores and append to select field with id "store_id"
+$.ajax({
+    url: server + '/store/stores',
+    type: 'GET',
+    success: function (data) {
+        console.log(data);
+        data.forEach(store => {
+            $('#storeFilter').append(`<option value=${store.id}>${store.storeName}</option>`);
+        });
+    },
+    error: function (error) {
+        console.log(error);
+    }
 });

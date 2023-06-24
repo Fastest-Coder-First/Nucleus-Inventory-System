@@ -152,6 +152,6 @@
 }
 
 .dt-row {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 /*# sourceMappingURL=products.css.map */
