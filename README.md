@@ -1,11 +1,4 @@
-![Screenshot (893)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/d12af43d-9120-43b2-a265-210a9715bb5e)
-![Uploading Screenshot (892).png…]()
-![Uploading Screenshot (891).png…]()
-![Uploading Screenshot (889).png…]()
-![Uploading Screenshot (888).png…]()
-![Uploading Screenshot (887).png…]()
-![Uploading Screenshot (886).png…]()
-![Uploading Screenshot (885).png…]()
+
 # Nucleus-Inventory-System
 
 ## Project Description
@@ -97,7 +90,17 @@ in development profile we have used h2 database and in production profile we hav
 - User views all products in all stores.
 
 ## Snap Shot of backend apis calls:
-![Uploading Screenshot (884).png…]()
-![Uploading Screenshot (883).png…]()
 
 
+![Screenshot (883)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/dd14d350-4ba4-4c0f-b495-12408043827e)
+
+![Screenshot (884)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/71a6faab-8afc-4931-be97-226b0063c33b)
+
+![Screenshot (885)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/9522e6b3-07af-42cd-9ec4-d25a78cf4e17)
+![Screenshot (886)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/19c28797-f99d-4a70-93dd-d85bfeba9330)
+![Screenshot (887)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/b92fe136-5433-4236-86ef-5dfd338eb9e2)
+![Screenshot (888)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/53bdfce2-254d-4f08-99f4-b5b497dc039d)
+![Screenshot (889)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/dacb988c-a88e-4f8f-98e2-bf53acceca76)
+![Screenshot (891)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/94b1573b-d6b5-4fff-9172-0a1e766064cb)
+![Screenshot (892)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/791d781e-867c-4e80-abb4-097be9869b79)
+![Screenshot (893)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/05e4d2d2-91fd-4551-bec3-5a0b3704ba1c)
