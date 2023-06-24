@@ -1,0 +1,157 @@
+.fab-btn {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  bottom: 15px;
+  right: 15px;
+  margin: 10px;
+  height: 47px;
+  width: 47px;
+  padding: 16.5px;
+  border-radius: 100px;
+  font-size: 17px;
+  color: #fff;
+  background-color: #ca4b4b;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.fab-btn:hover {
+  height: 47px;
+  width: 147px;
+  background-color: #b13b3b;
+}
+
+.fab-btn:hover > .label {
+  visibility: visible;
+  margin-right: 0px;
+  -webkit-animation: 0.3s ease-in-out alternate forwards label;
+  animation: 0.3s ease-in-out alternate forwards label;
+  white-space: nowrap;
+}
+
+.fab-btn:active {
+  background-color: #a12a2a;
+}
+
+.fab-btn .label {
+  visibility: collapse;
+  margin-left: 5px;
+  margin-right: -81px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@-webkit-keyframes label {
+  from {
+    margin-right: -81px;
+    visibility: collapse;
+  }
+  to {
+    margin-right: 0px;
+    visibility: visible;
+  }
+}
+
+@keyframes label {
+  from {
+    margin-right: -81px;
+    visibility: collapse;
+  }
+  to {
+    margin-right: 0px;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fab-btn {
+    bottom: 10px;
+    right: 10px;
+    height: 37px;
+    width: 37px;
+    padding: 11px;
+    font-size: 15px;
+  }
+  .fab-btn:hover {
+    height: 37px;
+    width: 137px;
+  }
+  .fab-btn .label {
+    margin-right: -61px;
+  }
+  @-webkit-keyframes label {
+    from {
+      margin-right: -61px;
+      visibility: collapse;
+    }
+    to {
+      margin-right: 0px;
+      visibility: visible;
+    }
+  }
+  @keyframes label {
+    from {
+      margin-right: -61px;
+      visibility: collapse;
+    }
+    to {
+      margin-right: 0px;
+      visibility: visible;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .fab-btn {
+    bottom: 10px;
+    right: 10px;
+    height: 37px;
+    width: 37px;
+    padding: 11px;
+    font-size: 15px;
+  }
+  .fab-btn:hover {
+    height: 37px;
+    width: 137px;
+  }
+  .fab-btn .label {
+    margin-right: -61px;
+  }
+  @-webkit-keyframes label {
+    from {
+      margin-right: -61px;
+      visibility: collapse;
+    }
+    to {
+      margin-right: 0px;
+      visibility: visible;
+    }
+  }
+  @keyframes label {
+    from {
+      margin-right: -61px;
+      visibility: collapse;
+    }
+    to {
+      margin-right: 0px;
+      visibility: visible;
+    }
+  }
+}
+
+.dt-row {
+  overflow-x: scroll;
+}
+/*# sourceMappingURL=products.css.map */
