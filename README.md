@@ -104,3 +104,10 @@ in development profile we have used h2 database and in production profile we hav
 ![Screenshot (891)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/94b1573b-d6b5-4fff-9172-0a1e766064cb)
 ![Screenshot (892)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/791d781e-867c-4e80-abb4-097be9869b79)
 ![Screenshot (893)](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/05e4d2d2-91fd-4551-bec3-5a0b3704ba1c)
+
+
+## Front end snap shot:
+![WhatsApp Image 2023-06-24 at 4 35 31 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/d8063869-05ef-4418-b74d-9f75addfdfab)
+
+![WhatsApp Image 2023-06-24 at 4 36 15 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/0aa00344-5665-45ef-9c44-506d043d2bd9)
+![WhatsApp Image 2023-06-24 at 4 37 08 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/0bd7bc1e-efcc-4893-b6b1-05d2a68b0d72)
