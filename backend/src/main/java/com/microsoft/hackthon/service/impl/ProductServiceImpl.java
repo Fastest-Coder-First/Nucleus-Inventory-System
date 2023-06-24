@@ -37,8 +37,8 @@ public class ProductServiceImpl implements ProductService {
     public Product addProduct(Product product) {
 //        create a method to add product to database with product repository
 
-//        create a add product method
-        product.setProductId(UUID.randomUUID());
+        product.getStore();
+
         return productRepository.save(product);
     }
 

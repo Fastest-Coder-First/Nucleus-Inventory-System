@@ -1,0 +1,29 @@
+# create basic configuation for application
+
+
+server:
+  address: 10.60.90.1
+  port: 8080
+  servlet:
+    context-path: /api/v1
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  application:
+    name: spring-boot-actuator
+  datasource:
+    url: jdbc:h2:file:~/h2/spring-boot-actuator
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+####
