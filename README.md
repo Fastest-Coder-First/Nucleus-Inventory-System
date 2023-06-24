@@ -89,6 +89,11 @@ in development profile we have used h2 database and in production profile we hav
 - User clicks on view all products in all stores.
 - User views all products in all stores.
 
+## This is how github copilot helps. We have to comments and  github co pilot helps to suggest.
+
+![image](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/d66c9715-df5a-49fb-abd4-a699e58ff33f)
+
+
 ## Snap Shot of backend apis calls:
 
 
@@ -111,3 +116,6 @@ in development profile we have used h2 database and in production profile we hav
 
 ![WhatsApp Image 2023-06-24 at 4 36 15 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/0aa00344-5665-45ef-9c44-506d043d2bd9)
 ![WhatsApp Image 2023-06-24 at 4 37 08 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/0bd7bc1e-efcc-4893-b6b1-05d2a68b0d72)
+![WhatsApp Image 2023-06-24 at 4 41 04 PM](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/64920910/c39af328-75cc-45c9-94e8-08b1be8e6db7)
+
+
