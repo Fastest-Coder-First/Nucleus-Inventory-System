@@ -1,6 +1,7 @@
 package com.microsoft.hackthon.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table()
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +22,8 @@ public class Store {
 
     private String storeName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "store")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "store")
+    @JsonManagedReference
     private List<Product> productList;
 
     private String storeAddress;

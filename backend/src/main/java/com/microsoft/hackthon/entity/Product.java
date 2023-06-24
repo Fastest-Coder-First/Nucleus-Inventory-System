@@ -1,5 +1,6 @@
 package com.microsoft.hackthon.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table()
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -25,7 +25,8 @@ public class Product {
 
     private Double productPrice;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonBackReference
     private Store store;
 
     private String description;
