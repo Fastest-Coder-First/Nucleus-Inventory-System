@@ -16,15 +16,26 @@
 </head>
 <body>
     <!-- make a table -->
-    <div class="container">
+    <div class="container">    
+    <nav style="font-size:16px;--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" class="alert alert-light py-2 px-3 mt-3 mb-1" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <div class="path">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="">Products</li>
+            </div>
+        </ol>
+        <div class="nav-action">
+            <div class="btn btn-sm btn-outline-secondary logout"><i class="fas fa-sign-out-alt"></i> Logout</div>
+        </div>
+      </nav>
         <div class="row">
             <div class="col-md-12">
                 <h3 class="text-center mt-3 heading">Products</h3>
 
                 <!-- filter by store name -->
-                <div class="d-flex justify-content-end mb-3">
-                    <div class="col-md-4">
-                        <select class="form-select" id="storeFilter">
+                <div class="d-flex justify-content-sm-center justify-content-center justify-content-xxl-center justify-content-md-end mb-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <select class="form-select-sm" id="storeFilter">
                             <option selected>All Stores</option>
                         </select>
                     </div>
@@ -34,7 +45,7 @@
                 <table class="table table-bordered table-striped table-hover" id="productTable">
                     <thead class="table-light">
                         <tr>
-                            <th>id</th>
+                            <th>Id</th>
                             <th>Name</th>
                             <th>Category</th>
                             <th>Price</th>
@@ -45,14 +56,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
+                        <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="d-flex gap-2 justify-content-center"><button id="edit" title="Edit" class="btn btn-outline-primary rounded px-3 btn-sm"><i class="fas fa-pen"></i></button> <button id="delete" title="Delete" class="btn btn-outline-danger rounded px-3 btn-sm"><i class="fas fa-trash"></i></button></td>
-                        </tr> -->
+                            <td></td>
+                            <td></td>
+                            <td class=""><button id="edit" title="Edit" class="btn btn-outline-primary rounded px-3 btn-sm"><i class="fas fa-pen"></i></button> <button id="delete" title="Delete" class="btn btn-outline-danger rounded px-3 btn-sm"><i class="fas fa-trash"></i></button></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

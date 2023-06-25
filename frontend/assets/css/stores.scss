@@ -47,7 +47,7 @@
 
 .fab-btn .label {
 	visibility: collapse;
-	margin-left: 5px;
+	margin-left: 11px;
 	margin-right: -81px;
 	overflow: hidden;
     white-space: nowrap;
@@ -115,7 +115,7 @@
 		}
 	}
 
-    #productTable_wrapper .row .col-sm-12.col-md-6{
+    #storeTable_wrapper .row .col-sm-12.col-md-6{
         margin-bottom: 8px;
     }
 }
@@ -175,8 +175,7 @@
 }
 
 
-
-tr>td:nth-child(8){
+tr>td:nth-child(4){
     display: flex;
     justify-content: center;
     gap: 9px;
