@@ -1,20 +1,25 @@
 package com.microsoft.hackthon.controller;
 
+import com.microsoft.hackthon.config.JwtService;
+import com.microsoft.hackthon.dao.UserRepository;
 import com.microsoft.hackthon.dto.CustomErrorResponse;
+import com.microsoft.hackthon.dto.LoginUserDto;
 import com.microsoft.hackthon.dto.UserDto;
 import com.microsoft.hackthon.entity.User;
+import com.microsoft.hackthon.exception.UserNotFound;
 import com.microsoft.hackthon.service.UserService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.*;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.ErrorResponse;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "*")
 public class UserController {
 
     @Autowired
@@ -23,13 +28,52 @@ public class UserController {
     @Autowired
     private ModelMapper modelMapper;
 
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private JwtService jwtService;
+
     @PostMapping("/add-user")
     public CustomErrorResponse addUser(@RequestBody UserDto userDto){
         User user = new User();
         modelMapper.map(userDto, user);
+//        modelMapper.map( userDto.getAddress(), user.getAddress() );
+
+//        user.setPassword( passwordEncoder.encode( user.getPassword() ) );
+        user.setAuthority("ROLE_USER");
+
 
         userService.addUser(user);
         return new CustomErrorResponse("user Added", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<CustomErrorResponse> login(@RequestBody LoginUserDto loginUserDto, HttpServletResponse response){
+
+        User user = userRepository.findByEmail(loginUserDto.getEmail()).orElseThrow(() -> new UserNotFound("User not found"));
+        if( !user.getPassword().equals(loginUserDto.getPassword()) ){
+            throw new RuntimeException("Invalid password");
+        }
+
+        if( user.getAuthority().equals("ROLE_USER") ){
+            HttpCookie cookie = ResponseCookie.from("user-id", "User")
+                    .path("/")
+                    .build();
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                    .body(new CustomErrorResponse("user Logged In", HttpStatus.OK));
+        }else{
+            HttpCookie cookie = ResponseCookie.from("admin-id","Admin" )
+                    .path("/")
+                    .build();
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                    .body(new CustomErrorResponse("user Logged In", HttpStatus.OK));
+        }
     }
 
     public CustomErrorResponse updateUser(@RequestBody UserDto userDto){

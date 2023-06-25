@@ -37,7 +37,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User addUser(User user) {
         // add user to database with user repository if user exist throw exception
-        userRepository.findById(user.getUserId()).orElseThrow( () -> new UserNotFound("User not found") );
+//        userRepository.findById(user.getUserId()).orElseThrow( () -> new UserNotFound("User not found") );
+
+        userRepository.findByEmail( user.getEmail() ).ifPresent( u -> { throw new RuntimeException("User already exist"); } );
+
         user.setUserId(UUID.randomUUID());
         return userRepository.save(user);
     }
@@ -47,10 +50,10 @@ public class UserServiceImpl implements UserService {
         // add user to database with user repository  and check if user already exist
         User existingUser = userRepository.findById(user.getUserId()).orElseThrow( () -> new UserNotFound("User not found") );
         existingUser.setUserName(user.getUserName());
-        existingUser.setUserPassword(user.getUserPassword());
-        existingUser.setUserEmail(user.getUserEmail());
-        existingUser.setUserPhone(user.getUserPhone());
-        existingUser.setUserAddress(user.getUserAddress());
+        existingUser.setPassword(user.getPassword());
+        existingUser.setEmail(user.getEmail());
+        existingUser.setPhoneNumber(user.getPhoneNumber());
+//        existingUser.setAddress(user.getAddress());
         return userRepository.save(existingUser);
     }
 

@@ -21,14 +21,15 @@ public class User {
 
     private String userName;
 
-    private String userEmail;
+    private String email;
 
     private String authority;
 
-    private String userPassword;
+    private String password;
 
-    private String userAddress;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Address address;
 
-    private String userPhone;
+    private String phoneNumber;
 
 }

@@ -1,4 +1,4 @@
-const server = "http://10.60.90.1:8080/api/v1"
+const server = "http://192.168.1.6:8080/api/v1"
 $(document).ready( function () {
     $('#storeTable').DataTable();
 });
@@ -17,7 +17,7 @@ $(document).ready(function () {
     // function hit api and to get all stores and add them to the jquery datatable
     async function getStores() {
         $.ajax({
-            url: server + '/stores',
+            url: server + '/store/stores',
             type: 'GET',
             success: function (data) {
                 console.log(data); 

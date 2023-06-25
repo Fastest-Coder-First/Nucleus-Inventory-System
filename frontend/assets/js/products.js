@@ -1,4 +1,4 @@
-const server = "http://10.60.90.1:8080/api/v1"
+const server = "http://192.168.1.6:8080/api/v1"
 $(document).ready( function () {
     $('#productTable').DataTable();
 });

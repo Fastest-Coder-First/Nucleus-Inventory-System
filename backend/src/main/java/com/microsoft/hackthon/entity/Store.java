@@ -26,5 +26,6 @@ public class Store {
     @JsonManagedReference
     private List<Product> productList;
 
-    private String storeAddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address storeAddress;
 }
