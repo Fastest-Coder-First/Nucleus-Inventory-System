@@ -1,5 +1,9 @@
 
 # Nucleus-Inventory-System
+![8e434bc2-d8b6-46f7-87b2-87b53d31ceae](https://github.com/Fastest-Coder-First/Nucleus-Inventory-System/assets/50174023/cb8d5f00-a99c-4035-843b-426de062eca1)
+
+# Home Page
+
 
 ## Project Description
 
